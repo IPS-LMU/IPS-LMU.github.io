@@ -5,98 +5,131 @@
   <meta charset='utf-8' />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/docs.css">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-
+  <!-- <link rel="stylesheet" href="http://getbootstrap.com/docs-assets/css/docs.css"> -->
+  
   <title>Ips-lmu.github.io</title>
 </head>
 
 <body>
 
   <!-- HEADER -->
-  <div id="header_wrap" class="outer">
-    <header class="inner">
-      <a id="forkme_banner" href="https://github.com/IPS-LMU">View on GitHub</a>
-
-      <h1 id="project_title">IPS-LMU GitHub Projects</h1>
-      <h2 id="project_tagline"></h2>
-
-    </header>
+  <div class="bs-header" id="content">
+    <div class="container">
+      <h1>IPS-LMU GitHub Projects</h1>
+    </div>
   </div>
 
   <!-- MAIN CONTENT -->
-  <div id="main_content_wrap" class="outer">
-    <section id="main_content" class="inner">
-      <h3>
-        <a name="welcome-to-our-github-projects" class="anchor" href="#welcome-to-our-github-projects"><span class="octicon octicon-link"></span></a>Welcome to our Github projects</h3>
-        <p>This is an overview page of the GitHub projects of the Institute Of Phonetics And Spreech Processing of the University of Munich. Please follow the links to the demos and to GitHub to find out more about each project.</p>
+  <h3>Welcome to our Github projects</h3>
+  <p>This is an overview page of the GitHub projects of the Institute Of Phonetics And Spreech Processing of the University of Munich. Please follow the links to the demos and to GitHub to find out more about each project.</p>
 
-        <h3>
-          <a name="current-projects" class="anchor" href="#current-projects"><span class="octicon octicon-link"></span></a>Current Projects</h3>
+  <h3>
+    <a name="current-projects" class="anchor" href="#current-projects"><span class="octicon octicon-link"></span></a>Current Projects</h3>
 
-          <ul class="nav nav-tabs">
-            <li class="active">
-              <a href="#EMU" data-toggle="tab">EMU</a>
-            </li>
-            <li>
-              <a href="#other" data-toggle="tab">Other</a>
-            </li>
-          </ul>
+    <!-- nav -->
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#EMU" data-toggle="tab">EMU</a>
+      </li>
+      <li>
+        <a href="#other" data-toggle="tab">Other</a>
+      </li>
+    </ul>
 
-          <div class="tab-content">
-           <div id="EMU" class="tab-pane active">
-             <p>
-              <h4>
-                <h5>Future System Architecture:</h5>
-                <img src="images/overview.png"/>
-                
-                <p>TODO: Note about future structure of project/ future plans</p>
-
-                <p>TODO: Description</p>
-
-                <p>TODO: Installation instructions</p>
-
-                <h5>wrassp</h5>
-                <ul>
-                  <li>TODO descr.</li>
-                  <li>TODO link GitHub Project page</li>
-                </ul>
-
-                <h5>EMU-Rpackage</h5>
-                <ul>
-                  <li>TODO descr.</li>
-                  <li>TODO link GitHub Project page</li>
-                </ul>
-                
-                <h5>EMU-webApp</h5>
-                <ul>
-                  <li>TODO descr.</li>
-                  <li>TODO link GitHub Project page</li>
-                </ul>
-                
-              </p>
-
+    <!-- nav content -->
+    <div class="tab-content">
+     <!-- EMU -->
+     <div id="EMU" class="tab-pane active">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="bs-sidebar hidden-print" role="complementary">
+            <ul class="nav bs-sidenav">
+              <li>
+                <a href="#">About</a>
+              </li>
+              <li>
+                <a href="#">EMU-webApp</a>
+              </li>
+              <li>
+                <a href="#">EMU-rPackage</a>
+              </li>
+              <li>
+                <a href="#">wrassp</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="bs-header" id="content">
+            <div class="container">
+              <img src="images/emuIcon.png"/>
             </div>
-            <div id="other" class="tab-pane">
-             <p>Currently no other projects available</p>
-           </div>
-         </div>
+          </div>
+          <p>
+            <p>
+              The EMU speechdatabase management system will be based in the <a href="http://cran.r-project.org/">R language for statistical computing</a>. Two R packages (the gray items in the Figure below) are currently being developed to complete the system, one being the wrassp package to handle the speech signal processing and the other handling database manipulation and querying as well as serving as a local websocket server to connect to the webApp/GUI. This infrastructure will allow researchers to have a self-contained system to query databases, perform signal processing and perform statistical evaluations all within the same environment. Being autonomous, however wrassp and the web application will also be able to be used separately if desired. The tools / projects presented here are still in early development and are have not made public yet. We are working hard to make these project public and open as soon as possible.
+            </p>
+            <h5>Future System Architecture:</h5>
+            <img src="images/overview.png"/>
+
+            <p>TODO: Note about future structure of project / future plans</p>
+
+            <p>TODO: Description</p>
+
+            <p>TODO: Installation instructions</p>
+
+            <h5>wrassp</h5>
+            <ul>
+              <li>TODO descr.</li>
+              <li>TODO link GitHub Project page</li>
+            </ul>
+
+            <h5>EMU-Rpackage</h5>
+            <ul>
+              <li>TODO descr.</li>
+              <li>TODO link GitHub Project page</li>
+            </ul>
+
+            <h5>EMU-webApp</h5>
+            <ul>
+              <li>TODO descr.</li>
+              <li>TODO link GitHub Project page</li>
+            </ul>
+
+          </p>
+
+        </div>
 
 
-
-       </section>
-     </div>
-
-     <!-- FOOTER  -->
-     <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p>For further information please contact <a href="https://github.com/raphywink" class="user-mention">@raphywink</a> or <a href="https://github.com/klausj" class="user-mention">@klausj</a></p>
-      </footer>
+      </div>
     </div>
+    <div id="other" class="tab-pane">
+     <p>Currently no other projects available</p>
+   </div>
 
-    <!-- javascript includes -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+ </div>
 
-  </body>
-  </html>
+
+
+ <!-- FOOTER  -->
+ <div id="footer_wrap" class="outer">
+  <footer class="inner">
+    <p>For further information please contact <a href="https://github.com/raphywink" class="user-mention">@raphywink</a> or <a href="https://github.com/klausj" class="user-mention">@klausj</a></p>
+  </footer>
+</div>
+
+<div id="footer">
+  <div class="container">
+    <p class="text-muted">For further information please contact <a href="https://github.com/raphywink" class="user-mention">@raphywink</a> or <a href="https://github.com/klausj" class="user-mention">@klausj</a></p>
+  </div>
+</div>
+
+
+<!-- javascript includes -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+</body>
+</html>
