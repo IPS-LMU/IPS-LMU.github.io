@@ -1,7 +1,15 @@
 body {
   position: relative; /* For scrollyspy */
-  /*padding-top: 50px;  Account for fixed navbar */
+  padding-top: 50px;  /*Account for fixed navbar */
 }
+
+
+/*navbar*/
+.ips-navbar {
+  background-color: #000;
+  color: #fff;
+}
+
 
 /*header*/
 .ips-header {
@@ -16,6 +24,8 @@ body {
 }
 
 .emu-header {
+  color: #fff;
+  padding: 30px;
   color: #fff;
   text-align: center;
   background-color: #0DC5FF;
@@ -42,6 +52,12 @@ img {
   border-radius: 5px;
 }
 
-p{
+/*p{
+  text-align: justify;
+  padding-: 5%;
+}*/
+
+.ips-navtab-content{
+  margin: 5%;
   text-align: justify;
 }

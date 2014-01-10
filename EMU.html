@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8' />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="http://getbootstrap.com/docs-assets/css/docs.css"> -->
+  
+  <title>Ips-lmu.github.io</title>
+</head>
+
+<body>
+  <!-- top nav bar -->
+  <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/" class="navbar-brand">IPS-LMU</a>
+      </div>
+      <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/index.html">About</a>
+          </li>
+          <li class="active">
+            <a href="/EMU.html">EMU</a>
+          </li>
+          <li>
+            <a href="/contact.html">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="emu-header" id="content">
+    <div class="container">
+      <img src="images/emuIcon.png"/>
+    </div>
+  </div>
+
+
+  <!-- nav -->
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a href="#About" data-toggle="tab">About</a>
+    </li>
+    <li>
+      <a href="#EMU-webApp" data-toggle="tab">EMU-webApp</a>
+    </li>
+    <li>
+      <a href="#EMU-rPackage" data-toggle="tab">EMU-rPackage</a>
+    </li>
+    <li>
+      <a href="#wrassp" data-toggle="tab">wrassp</a>
+    </li>
+  </ul>
+
+  <!-- nav content -->
+  <div class="tab-content">
+    <!-- About tab -->
+    <div id="About" class="tab-pane active ips-navtab-content">
+      <div class="alert alert-danger"><b>Warning!</b> This page is still under construction! Please don't read on! The information below is either incomplete or might even be false...</div>
+
+
+      <h2>EMU Speechdatabase Management System</h2>
+      <div class="alert alert-danger"><b>Warning!</b> The software that is described below is not yet available to the public. The following text is meant as a overview of the future system architecture. If parts of the project are released it will be announced here. So please check back here in the near future. We hope to release parts of the project as soon as possible</div>
+      <p>
+        <p>
+          We are currently working on the next iteration of the EMU speechdatabase management system. It will be mainly based in the <a href="http://cran.r-project.org/">R language for statistical computing</a>. Two R packages (the gray items in the Figure below) are currently being developed to complete the system, one being the wrassp package to handle the speech signal processing and the other handling database manipulation and querying as well as serving as a local websocket server to connect to the webApp/GUI. This infrastructure will allow researchers to have a self-contained system to query databases, perform signal processing and perform statistical evaluations all within the same environment. Being autonomous, however wrassp and the web application will also be able to be used separately if desired.
+        </p>
+        <img src="images/overview.png"/>
+
+        <h3>Workflow overview:</h3>
+
+        <h3>Installation instructions:</h3>
+        <p>There are several different ways to get the EMU-webApp running on your system. However, for the time being, we will only support one of these methods: Download and install <a href="https://www.google.com/chrome">Google-Chrome</a> (support for other browsers will follow!). Next point chrome to the following URL: <a href="http://raphywink.github.io/emuLVC/">http://raphywink.github.io/emuLVC/</a>. Thats it! This will download and cache the EMU-webApp for online and offline usage. If you ever have to use the EMU-webApp in an offline situation just navigate to the above URL and the browser will load the application from the application cache.</p>
+
+        <div class="alert alert-danger"><b>Warning!</b> Packages below are not yet available on CRAN!!</div>
+
+        <p>To install both the EMU-rPackage as well as the wrassp-rPackage only the EMU-rPackage has to be installed. This is achieved by typing <code>install.packages("EMU-rPackage")</code>into the R command prompt. </p>
+
+      </p>
+    </div>
+
+    <!-- EMU-webApp tab -->
+    <div id="EMU-webApp" class="tab-pane">
+     <p>EMU-webApp</p>
+   </div>
+
+   <!-- EMU-rPackage tab-->
+   <div id="EMU-rPackage" class="tab-pane">
+     <p>EMU-rPackage</p>
+   </div>
+
+   <!-- wrassp tab -->
+   <div id="wrassp" class="tab-pane">
+     <p>wrassp</p>
+   </div>
+
+ </div>
+
+
+ <!-- javascript includes -->
+ <script src="https://code.jquery.com/jquery.js"></script>
+ <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+</body>
+</html>
