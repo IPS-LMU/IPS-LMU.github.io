@@ -57,7 +57,22 @@ img {
   padding-: 5%;
 }*/
 
+.ips-navtab{
+  background-color: #fff;
+}
+
 .ips-navtab-content{
   margin: 5%;
   text-align: justify;
+}
+
+
+.sticky {
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  position: sticky;
+  top: 50px;
+  z-index: 100;
 }
