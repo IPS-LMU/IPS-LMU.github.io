@@ -62,6 +62,9 @@
     <li>
       <a href="#wrassp" data-toggle="tab">wrassp</a>
     </li>
+    <li>
+      <a href="#faqs" data-toggle="tab">FAQs</a>
+    </li>
   </ul>
 
   <!-- nav content -->
@@ -70,48 +73,135 @@
     <div id="About" class="tab-pane active ips-navtab-content">
       <div class="alert alert-danger"><b>Warning!</b> This page is still under construction! Please don't read on! The information below is either incomplete or might even be false...</div>
 
+      <div class="alert alert-danger"><b>Warning!</b> The software that is described below is not yet available to the public. The following text is meant as a overview of the future system architecture. If parts of the project are released it will be announced here. So please check back in the near future as we hope to release parts of the project as soon as possible.</div>
+      
+      <h1>EMU Speechdatabase Management System</h1>
 
-      <h2>EMU Speechdatabase Management System</h2>
-      <div class="alert alert-danger"><b>Warning!</b> The software that is described below is not yet available to the public. The following text is meant as a overview of the future system architecture. If parts of the project are released it will be announced here. So please check back here in the near future. We hope to release parts of the project as soon as possible</div>
+      <div class="alert alert-info"><b>Info!</b> This document is meant as an overview for the different components of the future EMU system and focuses on how they are supposed to work together to form the ecosystem that will be the next iteration of EMU. It tries to give a rough overview on how we plan the system to be used and is by no means are definite guide to the new system as this is still under development.</div>
+      
       <p>
-        <p>
-          We are currently working on the next iteration of the EMU speechdatabase management system. It will be mainly based in the <a href="http://cran.r-project.org/">R language for statistical computing</a>. Two R packages (the gray items in the Figure below) are currently being developed to complete the system, one being the wrassp package to handle the speech signal processing and the other handling database manipulation and querying as well as serving as a local websocket server to connect to the webApp/GUI. This infrastructure will allow researchers to have a self-contained system to query databases, perform signal processing and perform statistical evaluations all within the same environment. Being autonomous, however wrassp and the web application will also be able to be used separately if desired.
-        </p>
-        <img src="images/overview.png"/>
-
-        <h3>Workflow overview:</h3>
-
-        <h3>Installation instructions:</h3>
-        <p>There are several different ways to get the EMU-webApp running on your system. However, for the time being, we will only support one of these methods: Download and install <a href="https://www.google.com/chrome">Google-Chrome</a> (support for other browsers will follow!). Next point chrome to the following URL: <a href="http://raphywink.github.io/emuLVC/">http://raphywink.github.io/emuLVC/</a>. Thats it! This will download and cache the EMU-webApp for online and offline usage. If you ever have to use the EMU-webApp in an offline situation just navigate to the above URL and the browser will load the application from the application cache.</p>
-
-        <div class="alert alert-danger"><b>Warning!</b> Packages below are not yet available on CRAN!!</div>
-
-        <p>To install both the EMU-rPackage as well as the wrassp-rPackage only the EMU-rPackage has to be installed. This is achieved by typing <code>install.packages("EMU-rPackage")</code>into the R command prompt. </p>
-
+        Due to several maintainability and other issues of the old EMU system, we have made the decision to reimplement the EMU speechdatabase management system basically from scratch. In doing so we are trying to keep most of the concepts of the old system in place while improving on things like usability, maintainability, scalability, stability, speed and more.
       </p>
+
+
+      <div class="page-header">
+        <h3>System architecture overview</h3>
+      </div>
+      <p>
+        The core of the new system will be based in the <a href="http://cran.r-project.org/">R language for statistical computing</a>. Two R packages (the gray items in the Figure below) are currently being developed that will form the core of the new system, one being the wrassp package to handle the speech signal processing and the other handling database manipulation and querying as well as serving as a local websocket server to connect to the EMU-webApp. This infrastructure will allow researchers to have a self-contained system to query databases, perform signal processing and perform statistical evaluations all within the same environment. Being autonomous, however wrassp and the web application will also be able to be used separately if desired.
+      </p>
+      
+      <img src="images/tikz/overview.png"/ class="shadow">
+
     </div>
 
     <!-- EMU-webApp tab -->
-    <div id="EMU-webApp" class="tab-pane">
-     <p>EMU-webApp</p>
-   </div>
+    <div id="EMU-webApp" class="tab-pane ips-navtab-content">
+      <div class="alert alert-danger"><b>Warning!</b> This page is still under construction! Please don't read on! The information below is either incomplete or might even be false...</div>
 
-   <!-- EMU-rPackage tab-->
-   <div id="EMU-rPackage" class="tab-pane">
-     <p>EMU-rPackage</p>
-   </div>
+      <h1>EMU-webApp</h1>
+      <div class="alert alert-warning"><b>STATUS:</b> not released yet...</div>
 
-   <!-- wrassp tab -->
-   <div id="wrassp" class="tab-pane">
-     <p>wrassp</p>
-   </div>
+      <p>The EMU-webApp is an online and offline web application for labeling, visualizing and correcting speech and derived speech data. A screenshot of the web application can be seen below.</p>  
 
- </div>
+      <img src="images/EMU-webApp.png" class="shadow"/>
+
+      <div class="page-header">
+        <h3>Links</h3>
+      </div>
+      <ul>
+        <li><a href="http://raphywink.github.io/emuLVC/">The webApp</a></li>
+        <li><a href="https://github.com/raphywink/emuLVC">GitHub project page</a></li>
+      </ul>
+    </div>
+
+    <!-- EMU-rPackage tab-->
+    <div id="EMU-rPackage" class="tab-pane ips-navtab-content">
+      <div class="alert alert-danger"><b>Warning!</b> This page is still under construction! Please don't read on! The information below is either incomplete or might even be false...</div>
+
+      <h1>EMU-rPackage</h1>
+      <div class="alert alert-warning"><b>STATUS:</b> not released yet...</div>
+
+      <p>The EMU-rPackage is an R package that aims at providing speech signal segment extraction functionality for several speech annotation file formats (including oldEmuDBFormat/TextGrids/...) and their corresponding audio/derived-audio files. It aims at assisting a workflow, common in phonetic science/speech science, wherein certain speech-audio and annotation file collection are queried for specific time-based segments. The retrieved segment-lists can then be used to extract either precalculated derived signals or calculate these on the fly. Furthermore the package wants to be as easily expandable to new label file formats as possible (see Extendability section of this document).</p>
+      <h3>Links</h3>
+      <ul>
+        <li><a href="" onclick="alert('Not up yet! Sorry...')">CRAN</a></li>
+        <li><a href="https://github.com/raphywink/emuLVC">GitHub project page</a></li>
+      </ul>
+    </div>
+
+    <!-- wrassp tab -->
+    <div id="wrassp" class="tab-pane ips-navtab-content">
+
+      <div class="alert alert-danger"><b>Warning!</b> This page is still under construction! Please don't read on! The information below is either incomplete or might even be false...</div>
+
+      <h1>wrassp</h1>
+      <div class="alert alert-warning"><b>STATUS:</b> not released yet...</div>
+
+      wrassp is a wrapper to Michel Scheffer's libassp (Advanced Speech Signal Processor). The libassp library aims at providing functionality for handling speech signal files in most common audio formats and for    performing analyses common in phonetic science/speech science. This includes the calculation of formants, fundamental frequency, root mean square, auto correlation, a variety of spectral analyses, zero crossing rate, filtering etc. This wrapper library for R exposes a large subset of the signal processing functions to R in a (hopefully) user friendly manor.
+    </div>
+
+    <!-- faqs tab-->
+    <div id="faqs" class="tab-pane ips-navtab-content">
+      <div class="alert alert-danger"><b>Warning!</b> This page is still under construction! Please don't read on! The information below is either incomplete or might even be false...</div>
+
+      <h1>FAQs</h1>
+
+      <!-- question -->
+      <h4>Will I still be able to read my old EMU databases?</h4>
+
+      <div class="ips-callout ips-callout-info">
+        <p>The short answer is YES! We will provide methods for converting existing EMU databases to the new database format.</p>
+      </div>
+
+      <!-- question       -->
+      <h4>I have <i>.TextGrid</i> files and <i>.wav</i> files. Will I be able to use these in the new system?</h4>
+      <div class="ips-callout ips-callout-info">
+        <p>As with the old EMU databases we will provide methods for converting <i>.TextGrid</i> and <i>.wav</i> files collections to the new database format.</p>
+      </div>
+
+      <!-- question -->
+      <h4>What audio file types will the new system support?</h4>
+
+      <div class="ips-callout ips-callout-info">
+        <p>Currently the new system as a hole only supports <i>.wav</i> files. The wrassp package however supports a wide range of audio files.</p>
+      </div>
+
+      <!-- question -->
+      <h4>Will hierarchical annotations and queries be possible?</h4>
+
+      <div class="ips-callout ips-callout-info">
+        <p>As this is one of the most beneficial and powerful features of the old EMU system the new system will most definitely also implement these features.</p>
+      </div>
 
 
- <!-- javascript includes -->
- <script src="https://code.jquery.com/jquery.js"></script>
- <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+      <!-- question -->
+      <h4>What will the new annotation format look like?</h4>
+
+      <div class="ips-callout ips-callout-info">
+        <p>Although not fully decided yet, the most likely candidate for our annotation file format will be the <a href="http://en.wikipedia.org/wiki/JSON"><i>JSON</i></a> file format that uses links to connect annotational units (called elements) that are grouped in tier arrays. </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- non fixed footer -->
+<!--   <div class= "navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+      <p class="navbar-text pull-left">Written by <a href="https://github.com/raphywink">@raphywink</a> 2014</p>
+    </div>
+  </div>
+-->
+<footer class="ips-footer">
+  <p class="navbar-text pull-left">Written by <a href="https://github.com/raphywink">@raphywink</a> 2014
+  </p>
+</footer>
+
+
+
+<!-- javascript includes -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 
 </body>
 </html>

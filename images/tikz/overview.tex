@@ -1,0 +1,34 @@
+\documentclass[tikz, convert={outfile=\jobname.png}]{standalone}
+%\usetikzlibrary{...}% tikz package already loaded by 'tikz' option
+\begin{document}
+
+%!TEX root = ../document.tex
+\begin{tikzpicture}[scale=0.7] 
+	\definecolor{emuLVCblue}{HTML}{0DC5FF}
+	\tikzstyle{emuLVC}=[rounded corners,fill=emuLVCblue,inner sep=0.2cm] 	
+	\tikzstyle{rpackage}=[rounded corners,fill=gray,inner sep=0.2cm]
+	\tikzstyle{db}=[draw=black,inner sep=0.2cm] 
+
+	\node (emuLVC) at ( 0, 1) [emuLVC] {EMU-webApp}; 
+	
+	\node (wrassp) at ( -3, -2) [rpackage] {wrassp};
+
+	\node (emuSX) at ( 3, -2) [rpackage] {EMU-rPackage};	
+	
+	% \node (center) at ( 2, -2) [emuLVC] {$emuSX$};	
+
+	\draw[] (0,-2) ellipse (160pt and 40pt);
+	\node (R) at ( -5.7, -1.5) {\pgftext{\includegraphics{Rlogo}}};		
+
+	\node (db) at ( 0, -5) [db] {files comprising speechDB};	
+
+	
+	\draw [dotted,<->] (db.west) to [bend left=45] node[left]{\tiny{Signalproc.}} (wrassp.west);
+	\draw [dotted,<->] (db.east) to [bend right=45] node[right]{\tiny{file/DB handling}}(emuSX.east);
+	\draw [dotted,<->] (emuSX) to node[right]{\tiny{websocket connection}} (emuLVC);
+	\draw [dotted,<->] (wrassp) to node[below]{\tiny{Signalproc.}} (emuSX);
+	
+
+\end{tikzpicture}
+
+\end{document}

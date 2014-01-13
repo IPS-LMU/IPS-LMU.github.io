@@ -31,6 +31,16 @@ body {
   background-color: #0DC5FF;
 }
 
+
+.ips-footer {
+  /*height: 20px;*/
+  padding: 0;
+  color: #000;
+  background-color: rgb(244,244,244);
+  margin-top: -20px;
+}
+
+
 /*all img*/
 img {
   position: relative;
@@ -66,6 +76,12 @@ img {
   text-align: justify;
 }
 
+.ips-navtab-content h1{
+  margin: 5%;
+  text-align: center;
+}
+
+
 
 .sticky {
   position: -webkit-sticky;
@@ -76,3 +92,69 @@ img {
   top: 50px;
   z-index: 100;
 }
+
+/*use for if shadow fx is wanted*/
+.shadow {
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+/*
+ * Callouts
+ *
+ * Not quite alerts, but custom and helpful notes for folks reading the docs.
+ * Requires a base and modifier class.
+ */
+
+/* Common styles for all types */
+.ips-callout {
+  margin: 10px 0;
+  padding: 20px;
+  border-left: 3px solid #eee;
+}
+.ips-callout h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.ips-callout p:last-child {
+  margin-bottom: 0;
+}
+
+/* Variations */
+.ips-callout-danger {
+  background-color: #fdf7f7;
+  border-color: #eed3d7;
+}
+.ips-callout-danger h4 {
+  color: #b94a48;
+}
+.ips-callout-warning {
+  background-color: #faf8f0;
+  border-color: #faebcc;
+}
+.ips-callout-warning h4 {
+  color: #8a6d3b;
+}
+.ips-callout-info {
+  background-color: #f4f8fa;
+  border-color: #bce8f1;
+}
+.ips-callout-info h4 {
+  color: #34789a;
+}
+
+/*list of maintainers*/
+
+.ips-team .github-btn {
+float: right;
+margin-top: 6px;
+width: 120px;
+height: 20px;
+}
+
+.github-btn {
+  border:0;
+  overflow: hidden;
+}
+

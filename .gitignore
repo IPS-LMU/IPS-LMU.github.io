@@ -1,0 +1,12 @@
+# tmp latex files # 
+##############
+.tmp
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.log
+*.pdf
+*.xml
+*.gz
