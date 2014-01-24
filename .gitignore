@@ -10,3 +10,7 @@
 *.pdf
 *.xml
 *.gz
+
+# node modules #
+##############
+node_modules
