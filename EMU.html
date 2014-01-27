@@ -73,7 +73,7 @@
     <div id="About" class="tab-pane active ips-navtab-content">
       <div class="alert alert-danger"><b>Warning!</b> This page is still under construction! Please don't read on! The information below is either incomplete or might even be false...</div>
       
-      <h1>The new EMU Speechdatabase Management System</h1>
+      <h1>The Next Iteration of the EMU Speechdatabase Management System</h1>
 
       <div class="alert alert-info"><b>Info!</b> This document is meant as an overview for the different components of the future EMU system and focuses on how they are supposed to work together to form the ecosystem that will be the next iteration of EMU. It tries to give a rough overview on how we plan the system to be used and is by no means are definite guide to the new system as this is still under development. The software that is described below is not yet available to the public. Please check back here as we hope to make parts of the system public in the near future. </div>
       
@@ -95,14 +95,14 @@
         <h3>Database</h3>
       </div>
       <p>
-        As with the old EMU system a collection of files on the users hard drive will comprise a local speech database. These files will consist of audio files (initially only <a href="http://en.wikipedia.org/wiki/WAV">.wav</a> audio files will be supported across all the systems components), <a href="http://emu.sourceforge.net/manual/chap.ssff.html">SSFF</a> files and text files in the <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> format. The text files will describe the database as well as represent the actual hierarchical and label information. The folder structure of the database will loosely adhere to the structure <i>dbRootFolder → sessions → bundles</i>, where a bundle contains all the files associated with a recorded entity (e.g. an utterance).
+        As with the old EMU system a collection of files on the users hard drive will comprise a local speech database. These files will consist of audio files (initially only <a href="http://en.wikipedia.org/wiki/WAV">.wav</a> audio files will be supported across all the systems components), <a href="http://emu.sourceforge.net/manual/chap.ssff.html">SSFF</a> files and text files in the <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> format. The text files will describe the database as well as contain the actual hierarchical and label information. The folder structure of the database will loosely adhere to the structure <i>dbRootFolder → sessions → bundles</i>, where a bundle contains all the files associated with a recorded entity (e.g. an utterance).
       </p>
 
       <div class="page-header">
         <h3>Signal processing</h3>
       </div>
       <p>
-        The signal processing will be done by the wrassp package. The functions of this package take a list of audio file paths as their main argument and produce SSFF files containing the derived signals (e.g. formant contours / f0 contours/ ...) in the same location as the audio files that they where calculated for. These files can then be read for further analysis. A new feature is the ability to not write the result of a signal processing function back to disc but to return it as an in-memory-object. This feature is utilized by the EMU-rPackage to do "on the fly" calculations for data extraction queries of SSFF files that have not been precalculated (i.e. that don't exist).
+         The wrassp package will be responsible for the signal processing. The functions of this package take a list of audio file paths as their main argument and produce SSFF files containing the derived signals (e.g. formant contours / f0 contours/ ...). These files can then be read from the users hard drive for further analysis. A new feature is the ability to not write the result of a signal processing function back to disc but to return it as an in-memory-object. This feature is utilized by the EMU-rPackage to do "on the fly" calculations for data extraction queries of SSFF files, that have not been precalculated (i.e. that don't exist as files on the users hard drive).
       </p>
 
 
@@ -110,16 +110,18 @@
         <h3>Querying the database</h3>
       </div>
       <p>
-        Todo...
+        The querying of the database will be handled by the EMU-rPackage. Before being a able to query a database the user will have to load the database into memory, using a function that the package provides. This object can then be used to run segment extraction queries against (similar to <a href="http://emu.sourceforge.net/manual/emu.query.html"><i>emu.query()</i></a>). Analogous to the old system, the result of such a query can then be used to perform a data extraction query (similar to <a href="http://emu.sourceforge.net/manual/emu.track.html"><i>emu.track()</i></a>). Data extraction can either be performed on precalculated SSFF files or can be calculated on the fly utilizing the in-memory capability of the wrassp package. 
       </p>
 
       <div class="page-header">
         <h3>Labeling/Visualizing/Correcting data from the DB</h3>
       </div>
       <p>
-        TODO...
+        The graphical user interface (GUI) of EMU will be a web application that runs in the browser (initially only Googles Chrome browser will be fully supported). To install the webApp the only thing the user will have to do is navigate to a specific URL. Using a HTML5 technology called <a href="http://www.w3.org/TR/2011/WD-html5-20110525/offline.html">the application cache</a> the browser intelligently caches the webApp so that the user can renavigate to the same URL, even without network connectivity, enabling online as well as offline usage. 
       </p>
-      
+      <p>
+        To use the webApp to work on a local database the user will have to use the EMU-rPackage to load the database into memory. This object then has to be passed into a function that starts a local <a href="http://www.w3.org/TR/2009/WD-websockets-20091222/">websocket</a> server that runs in R. Now the user simply has to point the webApp to the websocket server URL (e.g. <i>ws://localhost:8080</i>) using the connect button of the GUI. Once this connection is established the local database is displayed by the EMU-webApp.
+      </p>
 
     </div>
 
