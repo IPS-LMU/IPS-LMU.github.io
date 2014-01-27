@@ -73,13 +73,13 @@
     <div id="About" class="tab-pane active ips-navtab-content">
       <div class="alert alert-danger"><b>Warning!</b> This page is still under construction! Please don't read on! The information below is either incomplete or might even be false...</div>
       
-      <h1>The Next Iteration of the EMU Speechdatabase Management System</h1>
+      <h1>The Next Iteration of the EMU Speech database Management System</h1>
 
       <p class="ips-navtab-content-abstract">
-        Due to several maintainability and other issues of the old EMU system, we have made the decision to reimplement the EMU speechdatabase management system basically from scratch. In doing so we are trying to keep most of the concepts of the old system in place while improving on things like usability, maintainability, scalability, stability, speed and more.
+        Due to several maintainability and other issues of the old EMU system, we have made the decision to reimplement the EMU speech database management system almost from scratch. In doing so we are trying to keep most of the concepts of the old system in place while improving on things like usability, maintainability, scalability, stability, speed and more.
       </p>
 
-      <div class="alert alert-info ips-navtab-content-abstract"><b>Info!</b> This document is meant as an overview for the different components of the future EMU system and focuses on how they are supposed to work together to form the ecosystem that will be the next iteration of EMU. It tries to give a rough overview on how we plan the system to be used and is by no means are definite guide to the new system as this is still under development. The software that is described below is not yet available to the public. Please check back here as we hope to make parts of the system public in the near future. </div>
+      <div class="alert alert-info ips-navtab-content-abstract"><b>Info!</b> This document is meant as an overview for the different components of the future EMU system and focuses on how they are supposed to work together to form the ecosystem that will be the next iteration of EMU. It tries to give a rough overview of how we plan for the system to be used and is by no means a definite guide to the new system, as this is still under development. The software that is described below is not yet available to the public. Please check back here as we hope to make parts of the system public in the near future. </div>
       
 
 
@@ -87,7 +87,7 @@
         <h3>System architecture overview</h3>
       </div>
       <p>
-        The core of the new system will be based in the <a href="http://cran.r-project.org/">R language for statistical computing</a>. Two R packages (the gray items in the Figure below) are currently being developed that will form the core of the new system, one being the wrassp package to handle the speech signal processing and the other handling database manipulation and querying as well as serving as a local websocket server to connect to the EMU-webApp. This infrastructure will allow researchers to have a self-contained system to query databases, perform signal processing and perform statistical evaluations all within the same environment. Being autonomous, however wrassp and the web application will also be able to be used separately if desired.
+        The core of the new system will be based in the <a href="http://cran.r-project.org/">R language for statistical computing</a>. We are currently developing two R packages (the gray items in the Figure below) that will form the core of the new system, one being the wrassp package to handle the speech signal processing and the other handling database manipulation and querying as well as serving as a local websocket server to connect to the EMU-webApp. This infrastructure will provide researchers with a self-contained system to query databases, perform signal processing and perform statistical analysis, all within the same environment. Wrassp and the web application will be able to be used as part of the new system or separately, as they can function as standalone applications/packages.
       </p>
       
       <img src="images/tikz/overview.png" class="shadow">
@@ -96,14 +96,14 @@
         <h3>Database</h3>
       </div>
       <p>
-        As with the old EMU system a collection of files on the users hard drive will comprise a local speech database. These files will consist of audio files (initially only <a href="http://en.wikipedia.org/wiki/WAV">.wav</a> audio files will be supported across all the systems components), <a href="http://emu.sourceforge.net/manual/chap.ssff.html">SSFF</a> files and text files in the <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> format. The text files will describe the database as well as contain the actual hierarchical and label information. The folder structure of the database will loosely adhere to the structure <i>dbRootFolder → sessions → bundles</i>, where a bundle contains all the files associated with a recorded entity (e.g. an utterance).
+        As with the old EMU system a collection of files on the user's hard drive will comprise a local speech database. These files will consist of audio files (initially only <a href="http://en.wikipedia.org/wiki/WAV">.wav</a> audio files will be supported across all the system's components), <a href="http://emu.sourceforge.net/manual/chap.ssff.html">SSFF</a> files and text files in the <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> format. The text files will describe the database as well as contain the actual hierarchical and label information. The folder structure of the database will loosely adhere to the structure <i>dbRootFolder → sessions → bundles</i>, where a bundle contains all the files associated with a recorded entity (e.g. an utterance).
       </p>
 
       <div class="page-header">
         <h3>Signal processing</h3>
       </div>
       <p>
-         The wrassp package will be responsible for the signal processing. The functions of this package take a list of audio file paths as their main argument and produce SSFF files containing the derived signals (e.g. formant contours / f0 contours/ ...). These files can then be read from the users hard drive for further analysis. A new feature is the ability to not write the result of a signal processing function back to disc but to return it as an in-memory-object. This feature is utilized by the EMU-rPackage to do "on the fly" calculations for data extraction queries of SSFF files, that have not been precalculated (i.e. that don't exist as files on the users hard drive).
+         The wrassp package will be responsible for the signal processing. The functions of this package take a list of audio file paths as their main argument and produce SSFF files containing the derived signals (e.g. formant contours / f0 contours/ ...). These files can then be read from the user's hard drive for further analysis. A new feature is the ability not to write the result of a signal processing function back to disc but to return it as an in-memory-object. This feature is utilized by the EMU-rPackage to do "on the fly" calculations for data extraction queries of SSFF files that have not been precalculated (i.e. that don't exist as files on the user's hard drive).
       </p>
 
 
@@ -111,14 +111,14 @@
         <h3>Querying the database</h3>
       </div>
       <p>
-        The querying of the database will be handled by the EMU-rPackage. Before being a able to query a database the user will have to load the database into memory, using a function that the package provides. This object can then be used to run segment extraction queries against (similar to <a href="http://emu.sourceforge.net/manual/emu.query.html"><i>emu.query()</i></a>). Analogous to the old system, the result of such a query can then be used to perform a data extraction query (similar to <a href="http://emu.sourceforge.net/manual/emu.track.html"><i>emu.track()</i></a>). Data extraction can either be performed on precalculated SSFF files or can be calculated on the fly utilizing the in-memory capability of the wrassp package. 
+        Database queries will be handled by the EMU-rPackage. Before querying a database the user will have to load the database into memory using a function that the package provides. Segment extraction queries can then be run against this object (similar to <a href="http://emu.sourceforge.net/manual/emu.query.html"><i>emu.query()</i></a>). As in the old system, the result of such a query can then be used to perform a data extraction query (similar to <a href="http://emu.sourceforge.net/manual/emu.track.html"><i>emu.track()</i></a>). Data extraction can either be performed on precalculated SSFF files or calculated on the fly utilizing the in-memory capability of the wrassp package. 
       </p>
 
       <div class="page-header">
         <h3>Labeling/Visualizing/Correcting data from the DB</h3>
       </div>
       <p>
-        The graphical user interface (GUI) of EMU will be a web application that runs in the browser (initially only Googles Chrome browser will be fully supported). To install the webApp the only thing the user will have to do is navigate to a specific URL. Using a HTML5 technology called <a href="http://www.w3.org/TR/2011/WD-html5-20110525/offline.html">the application cache</a> the browser intelligently caches the webApp so that the user can renavigate to the same URL, even without network connectivity, enabling online as well as offline usage. 
+        The graphical user interface (GUI) of EMU will be a web application that runs in the browser (initially only Google's Chrome browser will be fully supported). To install the webApp the only thing the user will have to do is navigate to a specific URL. Using a HTML5 technology called <a href="http://www.w3.org/TR/2011/WD-html5-20110525/offline.html">the application cache</a> the browser intelligently caches the webApp so that the user can renavigate to the same URL, even without network connectivity, enabling online as well as offline usage. 
       </p>
       <p>
         To use the webApp to work on a local database the user will have to use the EMU-rPackage to load the database into memory. This object then has to be passed into a function that starts a local <a href="http://www.w3.org/TR/2009/WD-websockets-20091222/">websocket</a> server that runs in R. Now the user simply has to point the webApp to the websocket server URL (e.g. <i>ws://localhost:8080</i>) using the connect button of the GUI. Once this connection is established the local database is displayed by the EMU-webApp.
@@ -153,7 +153,7 @@
       <h1>EMU-rPackage</h1>
       <div class="alert alert-warning"><b>STATUS:</b> not released yet...</div>
 
-      <p><em>TODO: Write description</em></p>
+      <p><em>TO DO: Write description</em></p>
       <div class="page-header">
         <h3>Links</h3>
       </div>  
@@ -172,7 +172,7 @@
       <div class="alert alert-warning"><b>STATUS:</b> not released yet...</div>
 
       <p>
-        Wrassp is an R package that functions as a wrapper to Michel Scheffer's libassp (Advanced Speech Signal Processor). The libassp library aims at providing functionality for handling speech signal files in most common audio formats and for    performing analyses common in phonetic science/speech science. This includes the calculation of formants, fundamental frequency, root mean square, auto correlation, a variety of spectral analyses, zero crossing rate, filtering etc. This wrapper library for R exposes a large subset of the signal processing functions to R in a (hopefully) user friendly manor.
+        Wrassp is an R package that functions as a wrapper to Michel Scheffer's libassp (Advanced Speech Signal Processor). The libassp library aims at providing functionality for handling speech signal files in most common audio formats and for performing analyses common in phonetic science/speech science. This includes the calculation of formants, fundamental frequency, root mean square, autocorrelation, a variety of spectral analyses, zero crossing rate, filtering etc. This wrapper library for R exposes a large subset of the signal processing functions to R in a (hopefully) user friendly manor.
       </p>
 
       <div class="page-header">
@@ -194,27 +194,27 @@
       <h4>Will I still be able to use my old EMU databases?</h4>
 
       <div class="ips-callout ips-callout-info">
-        <p>The short answer is YES! But you will not be able to work on them directly. We will however definitely provide methods for converting existing EMU databases to the new database format.</p>
+        <p>The short answer is YES! But you will not be able to work with them directly. We will however, definitely provide methods for converting existing EMU databases to the new database format.</p>
       </div>
 
       <!-- question       -->
       <h4>I have <i>.TextGrid</i> files and <i>.wav</i> files. Will I be able to use these in the new system?</h4>
       <div class="ips-callout ips-callout-info">
-        <p>As with the old EMU databases we will provide methods for converting <i>.TextGrid</i> and <i>.wav</i> files collections to the new database format.</p>
+        <p>As with the old EMU databases we will provide methods for converting <i>.TextGrid</i> and <i>.wav</i> file collections to the new database format.</p>
       </div>
 
       <!-- question -->
       <h4>What audio file types will the new system support?</h4>
 
       <div class="ips-callout ips-callout-info">
-        <p>Currently the new system as a hole only supports <i>.wav</i> files. The wrassp package however supports a wide range of audio files.</p>
+        <p>Currently the new system as a whole only supports <i>.wav</i> files. The wrassp package, however, supports a wide range of audio files.</p>
       </div>
 
       <!-- question -->
       <h4>Will hierarchical annotations and queries be possible?</h4>
 
       <div class="ips-callout ips-callout-info">
-        <p>As this is one of the most beneficial and powerful features of the old EMU system the new system will most definitely also implement these features.</p>
+        <p>As this is one of the most beneficial and powerful features of the old EMU system, the new system will also implement these features.</p>
       </div>
 
 
