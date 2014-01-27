@@ -86,6 +86,21 @@ img {
   text-align: center;
 }
 
+.ips-navtab-content img{
+  text-align: center;
+}
+
+.ips-navtab-content-halfSizeImg{
+  width: 50%;
+  margin-left: 25%;
+  text-align: center;
+}
+
+/*.ips-navtab-content-abstract{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+*/
 
 
 .sticky {
