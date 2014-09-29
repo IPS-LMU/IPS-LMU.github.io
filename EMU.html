@@ -57,7 +57,7 @@
       <a href="#EMU-webApp" data-toggle="tab">EMU-webApp</a>
     </li>
     <li>
-      <a href="#EMU-rPackage" data-toggle="tab">EMU-rPackage</a>
+      <a href="#emuR" data-toggle="tab">emuR</a>
     </li>
     <li>
       <a href="#wrassp" data-toggle="tab">wrassp</a>
@@ -78,15 +78,16 @@
 
       <div class="alert alert-warning"><b>NEWS:</b> 
         <ul>
-          <li>alpha version of wrassp R-package available<small class="date">(Juli 21, 2014)</small></li>
-          <li>alpha version of EMU-webApp available <small class="date">(June 10, 2014)</small></li>
+          <li>alpha version of <a href="https://github.com/IPS-LMU/emuR">emuR</a> R-package available<small class="date">(September 29, 2014)</small></li>
+          <li>alpha version of <a href="https://github.com/IPS-LMU/wrassp">wrassp</a> R-package available<small class="date">(Juli 21, 2014)</small></li>
+          <li>alpha version of <a href="https://github.com/IPS-LMU/EMU-webApp/">EMU-webApp</a> available <small class="date">(June 10, 2014)</small></li>
         </ul></div>
 
       <p class="ips-navtab-content-abstract">
         Due to several maintainability and other issues of the old EMU system, we have made the decision to reimplement the EMU speech database management system almost from scratch. In doing so we are trying to keep most of the concepts of the old system in place while improving on things like usability, maintainability, scalability, stability, speed and more.
       </p>
 
-      <div class="alert alert-info ips-navtab-content-abstract"><b>INFO:</b> This document is meant as an overview for the different components of the future EMU system and focuses on how they are supposed to work together to form the ecosystem that will be the next iteration of EMU. It tries to give a rough overview of how we plan for the system to be used and is by no means a definite guide to the new system, as this is still under development. The software that is described below is not yet available to the public. Please check back here as we hope to make parts of the system public in the near future. </div>
+      <div class="alert alert-info ips-navtab-content-abstract"><b>INFO:</b> This document is meant as an overview for the different components of the future EMU system and focuses on how they are supposed to work together to form the ecosystem that will be the next iteration of EMU. It tries to give a rough overview of how we plan for the system to be used and is by no means a definite guide to the new system, as this is still under development. The software that is described below is still considered an alpha release. So please use with caution...</div>
       
 
 
@@ -110,7 +111,7 @@
         <h3>Signal processing</h3>
       </div>
       <p>
-         The wrassp package will be responsible for the signal processing. The functions of this package take a list of audio file paths as their main argument and produce SSFF files containing the derived signals (e.g. formant contours / f0 contours/ ...). These files can then be read from the user's hard drive for further analysis. A new feature is the ability not to write the result of a signal processing function back to disc but to return it as an in-memory-object. This feature is utilized by the EMU-rPackage to do "on the fly" calculations for data extraction queries of SSFF files that have not been precalculated (i.e. that don't exist as files on the user's hard drive).
+         The wrassp package will be responsible for the signal processing. The functions of this package take a list of audio file paths as their main argument and produce SSFF files containing the derived signals (e.g. formant contours / f0 contours/ ...). These files can then be read from the user's hard drive for further analysis. A new feature is the ability not to write the result of a signal processing function back to disc but to return it as an in-memory-object. This feature is utilized by the emuR to do "on the fly" calculations for data extraction queries of SSFF files that have not been precalculated (i.e. that don't exist as files on the user's hard drive).
       </p>
 
 
@@ -118,7 +119,7 @@
         <h3>Querying the database</h3>
       </div>
       <p>
-        Database queries will be handled by the EMU-rPackage. Before querying a database the user will have to load the database into memory using a function that the package provides. Segment extraction queries can then be run against this object (similar to <a href="http://emu.sourceforge.net/manual/emu.query.html"><i>emu.query()</i></a>). As in the old system, the result of such a query can then be used to perform a data extraction query (similar to <a href="http://emu.sourceforge.net/manual/emu.track.html"><i>emu.track()</i></a>). Data extraction can either be performed on precalculated SSFF files or calculated on the fly utilizing the in-memory capability of the wrassp package. 
+        Database queries will be handled by the emuR. Before querying a database the user will have to load the database into memory using a function that the package provides. Segment extraction queries can then be run against this object (similar to <a href="http://emu.sourceforge.net/manual/emu.query.html"><i>emu.query()</i></a>). As in the old system, the result of such a query can then be used to perform a data extraction query (similar to <a href="http://emu.sourceforge.net/manual/emu.track.html"><i>emu.track()</i></a>). Data extraction can either be performed on precalculated SSFF files or calculated on the fly utilizing the in-memory capability of the wrassp package. 
       </p>
 
       <div class="page-header">
@@ -128,7 +129,7 @@
         The graphical user interface (GUI) of EMU will be a web application that runs in the browser (initially only Google's Chrome browser will be fully supported). To install the webApp the only thing the user will have to do is navigate to a specific URL. Using a HTML5 technology called <a href="http://www.w3.org/TR/2011/WD-html5-20110525/offline.html">the application cache</a> the browser intelligently caches the webApp so that the user can renavigate to the same URL, even without network connectivity, enabling online as well as offline usage. 
       </p>
       <p>
-        To use the webApp to work on a local database the user will have to use the EMU-rPackage to load the database into memory. This object then has to be passed into a function that starts a local <a href="http://www.w3.org/TR/2009/WD-websockets-20091222/">websocket</a> server that runs in R. Now the user simply has to point the webApp to the websocket server URL (e.g. <i>ws://localhost:8080</i>) using the connect button of the GUI. Once this connection is established the local database is displayed by the EMU-webApp.
+        To use the webApp to work on a local database the user will have to use the emuR to load the database into memory. This object then has to be passed into a function that starts a local <a href="http://www.w3.org/TR/2009/WD-websockets-20091222/">websocket</a> server that runs in R. Now the user simply has to point the webApp to the websocket server URL (e.g. <i>ws://localhost:8080</i>) using the connect button of the GUI. Once this connection is established the local database is displayed by the EMU-webApp.
       </p>
 
     </div>
@@ -153,20 +154,20 @@
       </ul>
     </div>
 
-    <!-- EMU-rPackage tab-->
-    <div id="EMU-rPackage" class="tab-pane ips-navtab-content">
+    <!-- emuR tab-->
+    <div id="emuR" class="tab-pane ips-navtab-content">
       <!-- <div class="alert alert-danger"><b>Warning!</b> This page is still under construction! Please don't read on! The information below is either incomplete or might even be false...</div> -->
 
-      <h1>EMU-rPackage</h1>
-      <div class="alert alert-warning"><b>STATUS:</b> not released yet...</div>
-
-      <p><em>TO DO: Write description</em></p>
+      <h1>emuR</h1>
+      <div class="alert alert-warning"><b>STATUS:</b> public alpha version available (see Links)</div>
+      <p>The new R library for the Emu Speech Database System</p>
+      <p><em>TODO: Write better description</em></p>
       <div class="page-header">
         <h3>Links</h3>
       </div>  
       <ul>
         <li><a onclick="alert('Not available yet! Sorry...')">CRAN</a></li>
-        <li><a onclick="alert('Not available yet! Sorry...')">GitHub project page</a></li>
+        <li><a href="https://github.com/IPS-LMU/emuR">GitHub project page</a></li>
       </ul>
     </div>
 
@@ -229,7 +230,7 @@
       <h4>What will the new annotation format look like?</h4>
 
       <div class="ips-callout ips-callout-info">
-        <p>Although we haven't worked out all the details yet, the annotation files will be stored in the <a href="http://en.wikipedia.org/wiki/JSON"><i>JSON</i></a> file format. In our JSON files we will use links to connect annotational units (called elements) to each other. These elements are also grouped in level arrays specifying the level they belong to.</p>
+        <p>Although we haven't worked out all the details yet, the annotation files will be stored in the <a href="http://en.wikipedia.org/wiki/JSON"><i>JSON</i></a> file format. In our JSON files we will use links to connect annotational units (called items) to each other. These items are grouped in level arrays specifying the level they belong to.</p>
       </div>
 
     </div>
