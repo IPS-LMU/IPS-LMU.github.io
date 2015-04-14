@@ -86,17 +86,32 @@
           <li>alpha version of <a href="https://github.com/IPS-LMU/EMU-webApp/">EMU-webApp</a> available <small class="date">(June 10, 2014)</small></li>
         </ul></div>
 
-      <p class="ips-navtab-content-abstract">
-        Due to several maintainability and other issues of the old EMU system, we have made the decision to reimplement the EMU speech database management system almost from scratch. In doing so we are trying to keep most of the concepts of the old system in place while improving on things like usability, maintainability, scalability, stability, speed and more.
+
+
+      <div class="page-header">
+        <h3>About</h3>
+      </div>      
+      <p>
+      EMU is a collection of software tools for the creation, manipulation and analysis of speech databases. At the core of EMU is a database search engine which allows the researcher to find various speech segments based on the sequential and hierarchical structure of the utterances in which they occur. EMU utilizes the EMU-webApp as an interactive labeler which can display spectrograms and other speech waveforms, and which allows the creation of hierarchical, as well as sequential, labels for a speech utterance.
       </p>
 
-      <div class="alert alert-info ips-navtab-content-abstract"><b>INFO:</b> This document is meant as an overview for the different components of the future EMU system and focuses on how they are supposed to work together to form the ecosystem that will be the next iteration of EMU. It tries to give a rough overview of how we plan for the system to be used and is by no means a definite guide to the new system, as this is still under development. The software that is described below is still considered an alpha release. So please use with caution...</div>
-      
+      <h4>Features in a nutshell</h2>
+      <ul>
+        <li>Processing of acoustic and articluatory data</li>
+        <li>Sequential and hierarchical annotations with and without time association</li>
+        <li>Signal Processing</li>
+        <li>Annotation Tool</li>  
+        <li>Easily expendable/scriptable as everything (except the GUI) is written in R</li>
+      </ul>
 
 
       <div class="page-header">
         <h3>System architecture overview</h3>
       </div>
+      <div class="alert alert-info ips-navtab-content-abstract"><b>INFO:</b> This document is meant as an overview for the different components of the future EMU system and focuses on how they are supposed to work together to form the ecosystem that will be the next iteration of EMU. It tries to give a rough overview of how we plan for the system to be used and is by no means a definite guide to the new system, as this is still under development. The software that is described below is still considered an alpha release. So please use with caution...</div>
+      <p>
+        Due to several maintainability and other issues of the old EMU system, we have made the decision to reimplement the EMU speech database management system almost from scratch. In doing so we are trying to keep most of the concepts of the old system in place while improving on things like usability, maintainability, scalability, stability, speed and more.
+      </p>
       <p>
         The core of the new system will be based in the <a href="http://cran.r-project.org/">R language for statistical computing</a>. We are currently developing two R packages (the gray items in the Figure below) that will form the core of the new system, one being the wrassp package to handle the speech signal processing and the other handling database manipulation and querying as well as serving as a local websocket server to connect to the EMU-webApp. This infrastructure will provide researchers with a self-contained system to query databases, perform signal processing and perform statistical analysis, all within the same environment. Wrassp and the web application will be able to be used as part of the new system or separately, as they can function as standalone applications/packages.
       </p>
