@@ -74,7 +74,7 @@
       <!-- <div class="alert alert-danger"><b>Warning!</b> This page is still under construction! Please don't read on! The information below is either incomplete or might even be false...</div> -->
       
 
-      <h1>The Next Iteration of the EMU Speech database Management System (EMU_SDMS)</h1>
+      <h1>The Next Iteration of the EMU Speech Database Management System (EMU_SDMS)</h1>
 
 
 <div style="text-align: center;">
@@ -89,7 +89,7 @@
       EMU is a collection of software tools for the creation, manipulation and analysis of speech databases. At the core of EMU is a database search engine which allows the researcher to find various speech segments based on the sequential and hierarchical structure of the utterances in which they occur. EMU utilizes the EMU-webApp as an interactive labeler which can display spectrograms and other speech waveforms, and which allows the creation of hierarchical, as well as sequential, labels for a speech utterance.
       </p>
 
-      <h4>Features in a nutshell</h2>
+      <h4>Features in a nutshell</h4>
       <ul>
         <li>Processing of acoustic and articluatory data</li>
         <li>Sequential and hierarchical annotations with and without time association</li>
@@ -98,6 +98,16 @@
         <li>Easily expendable/scriptable as everything (except the GUI) is written in R</li>
       </ul>
 
+      <h4>Typical work-flow in emuR (emuDB required):</h4>
+      <ol>
+        <li>Load database into current R session - <i>load_emuDB</i></li>
+        <li>Database annotation / visual inspection - <i>serve</i> and connect the EMU-webApp to the local server</li>
+        <li>Query database - <i>query</i> (sometimes followed by <i>requery_hier</i> or <i>requery_seq</i>)</li>
+        <li>Get trackdata (e.g. formant values) for the result of a query - <i>get_trackdata</i></li>
+        <li>Data preparation</li>
+        <li>Visual data inspection</li>
+        <li>Further analysis and statistical processing</li>
+       </ul>
 
       <div class="page-header">
         <h3>System architecture overview</h3>
