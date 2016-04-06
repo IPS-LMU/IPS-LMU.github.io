@@ -117,7 +117,7 @@
         Due to several maintainability and other issues of the old EMU system, we made the decision to reimplement the legacy EMU_SDMS almost from scratch. In doing so we tried to keep most of the concepts of the legacy system in place while improving on things like usability, maintainability, scalability, stability, speed and more.
       </p>
       <p>
-        The core of the new system is based in the <a href="http://cran.r-project.org/">R language for statistical computing</a>. We have developed two R packages (the gray items in the Figure below) that form the core of the new system, one being the wrassp package which handles the speech signal processing and the other handling database manipulation and querying as well as serving as a local websocket server to connect to the EMU-webApp. This infrastructure will provide researchers with a self-contained system to query databases, perform signal processing and perform statistical analysis, all within the same environment. Wrassp and the web application will be able to be used as part of the new system or separately, as they can function as standalone applications/packages.
+        The core of the new system is based in the <a href="http://cran.r-project.org/">R language for statistical computing</a>. We have developed two R packages (the gray items in the Figure below) that form the core of the new system, one being the wrassp package which handles the speech signal processing and the other handling database manipulation and querying as well as serving as a local websocket server to connect to the EMU-webApp. This infrastructure provides researchers with a self-contained system to query databases, perform signal processing and perform statistical analysis, all within the same environment. Wrassp and the web application are able to be used as part of the new system or separately, as they can function as standalone applications/packages.
       </p>
       
       <img src="images/tikz/overview.png" class="shadow">
@@ -161,7 +161,7 @@
       <!-- <div class="alert alert-danger"><b>Warning!</b> This page is still under construction! Please don't read on! The information below is either incomplete or might even be false...</div> -->
 
       <h1>EMU-webApp</h1>
-      <div class="alert alert-warning"><b>STATUS:</b> public alpha version available (see Links)</div>
+      <div class="alert alert-success"><b>STATUS:</b> public version available (see Links)</div>
 
       <p>The EMU-webApp is an online and offline web application for labeling, visualizing and correcting speech and derived speech data. A screenshot of the web application can be seen below.</p>  
 
@@ -181,14 +181,14 @@
       <!-- <div class="alert alert-danger"><b>Warning!</b> This page is still under construction! Please don't read on! The information below is either incomplete or might even be false...</div> -->
 
       <h1>emuR</h1>
-      <div class="alert alert-warning"><b>STATUS:</b> public alpha version available (see Links)</div>
-      <p>The new R library for the Emu Speech Database System</p>
-      <p><em>TODO: Write better description</em></p>
+      <div class="alert alert-success"><b>STATUS:</b> released on CRAN (see Links)</div>
+      <p>Main Package of the EMU Speech Database Management System</p>
+      <p>Provides the next iteration of the EMU Speech Database Management System (EMU_SDMS) with database management, data extraction, data preparation and data visualization facilities. </p>
       <div class="page-header">
         <h3>Links</h3>
       </div>  
       <ul>
-        <li><a onclick="alert('Not available yet! Sorry...')">CRAN</a></li>
+        <li><a href="https://cran.r-project.org/web/packages/emuR/index.html">CRAN</a></li>
         <li><a href="https://github.com/IPS-LMU/emuR">GitHub project page</a></li>
       </ul>
     </div>
@@ -221,16 +221,16 @@
       <h1>FAQs</h1>
 
       <!-- question -->
-      <h4>Will I still be able to use my old EMU databases?</h4>
+      <h4>Am I still be able to use my old EMU databases?</h4>
 
       <div class="ips-callout ips-callout-info">
-        <p>The short answer is YES! But you will not be able to work with them directly. We will however, definitely provide methods for converting existing EMU databases to the new database format.</p>
+        <p>The short answer is YES! But you will not be able to work with them directly. We provide a method that is part of the emuR package called <i>convert_legacyEmuDB()</i> that converts existing EMU databases to the new emuDB format.</p>
       </div>
 
       <!-- question       -->
-      <h4>I have <i>.TextGrid</i> files and <i>.wav</i> files. Will I be able to use these in the new system?</h4>
+      <h4>I have <i>.TextGrid</i> files and <i>.wav</i> files. Am I able to use these in the new system?</h4>
       <div class="ips-callout ips-callout-info">
-        <p>As with the old EMU databases we will provide methods for converting <i>.TextGrid</i> and <i>.wav</i> file collections to the new database format.</p>
+        <p>As with the old EMU databases we provide methods for converting <i>.TextGrid</i> and <i>.wav</i> file collections to the new database format.</p>
       </div>
 
       <!-- question -->
@@ -241,18 +241,18 @@
       </div>
 
       <!-- question -->
-      <h4>Will hierarchical annotations and queries be possible?</h4>
+      <h4>Are hierarchical annotations and queries be possible?</h4>
 
       <div class="ips-callout ips-callout-info">
-        <p>As this is one of the most beneficial and powerful features of the old EMU system, the new system will also implement these features.</p>
+        <p>As this is one of the most beneficial and powerful features of the old EMU system, the new system also implements these features.</p>
       </div>
 
 
       <!-- question -->
-      <h4>What will the new annotation format look like?</h4>
+      <h4>What does the new annotation format look like?</h4>
 
       <div class="ips-callout ips-callout-info">
-        <p>Although we haven't worked out all the details yet, the annotation files will be stored in the <a href="http://en.wikipedia.org/wiki/JSON"><i>JSON</i></a> file format. In our JSON files we will use links to connect annotational units (called items) to each other. These items are grouped in level arrays specifying the level they belong to.</p>
+        <p>The annotation files are stored in the <a href="http://en.wikipedia.org/wiki/JSON"><i>JSON</i></a> file format. These JSON files use links to connect annotational units (called items) to each other. These items are grouped in level arrays specifying the level they belong to.</p>
       </div>
 
     </div>
