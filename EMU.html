@@ -74,7 +74,7 @@
       <!-- <div class="alert alert-danger"><b>Warning!</b> This page is still under construction! Please don't read on! The information below is either incomplete or might even be false...</div> -->
       
 
-      <h1>The Next Iteration of the EMU Speech Database Management System (EMU_SDMS)</h1>
+      <h1>The EMU Speech Database Management System (EMU-SDMS)</h1>
 
 
 <div style="text-align: center;">
@@ -86,8 +86,20 @@
         <h3>About</h3>
       </div>      
       <p>
-      EMU is a collection of software tools for the creation, manipulation and analysis of speech databases. At the core of EMU is a database search engine which allows the researcher to find various speech segments based on the sequential and hierarchical structure of the utterances in which they occur. EMU utilizes the EMU-webApp as an interactive labeler which can display spectrograms and other speech waveforms, and which allows the creation of hierarchical, as well as sequential, labels for a speech utterance.
+      The EMU-SDMS is a collection of software tools for the creation, manipulation and analysis of speech databases. At the core of the EMU-SDMS is a database search engine which allows the researcher to find various speech segments based on the sequential and hierarchical structure of the utterances in which they occur. The EMU-SDMS utilizes the EMU-webApp as an interactive labeler which can display spectrograms and other speech waveforms, and which allows the creation of hierarchical, as well as sequential, labels for a speech utterance.
       </p>
+
+      <div class="alert alert-info ips-navtab-content-abstract">
+      <h4>Quickstart in R:</h4>
+      <ol>
+        <li>Install and load the <a href="https://cran.r-project.org/package=emuR">emuR</a> package - <i>install.packages("emuR")</i> followed by <i>library("emuR")</i></li>
+        <li>Create and load a demo emuDB - <i>create_emuRdemoData()</i> followed by <i>ae = load_emuDB(file.path(tempdir(), "emuR_demoData", "ae_emuDB"))</i></li>
+        <li>Query the emuDB for all <i>/n/</i> segments of the "Phonetic" annotation level - <i>sl = query(ae, "Phonetic == n")</i></li>
+        <li>Extract the according formant values - </li>td = get_trackdata(ae, sl, onTheFlyFunctionName = "forest")
+        <li>Serve emuDB to EMU-webApp for annotation / visual inspection - <i>serve(ae)</i></li>
+      </ol>
+      <em>For a more explicit introduction see <i>vignette("emuR_intro")</i></em>
+      </div>
 
       <h4>Features in a nutshell</h4>
       <ul>
@@ -98,7 +110,7 @@
         <li>Easily expendable/scriptable as everything (except the GUI) is written in R</li>
       </ul>
 
-      <h4>Typical work-flow in emuR (emuDB required):</h4>
+      <h4>Typical work-flow in emuR as demonstrated by the quickstart guide above (emuDB required):</h4>
       <ol>
         <li>Load database into current R session - <i>load_emuDB</i></li>
         <li>Database annotation / visual inspection - <i>serve</i> and connect the EMU-webApp to the local server</li>
@@ -112,7 +124,7 @@
       <div class="page-header">
         <h3>System architecture overview</h3>
       </div>
-      <div class="alert alert-info ips-navtab-content-abstract"><b>INFO:</b> This document is meant as an overview for the different components of the next iteration of EMU and focuses on how they work together to form the ecosystem that is the next iteration of EMU. It tries to give a rough overview of how we plan for the system to be used and is by no means a definite guide to the new system.</div>
+      <div class="alert alert-info ips-navtab-content-abstract"><b>INFO:</b> This document is meant as an overview for the different components of the EMU-SDMS and focuses on how they work together to form the ecosystem that is EMU. It tries to give a rough overview of how we plan for the system to be used and is by no means a definite guide to the new system.</div>
       <p>
         Due to several maintainability and other issues of the old EMU system, we made the decision to reimplement the legacy EMU_SDMS almost from scratch. In doing so we tried to keep most of the concepts of the legacy system in place while improving on things like usability, maintainability, scalability, stability, speed and more.
       </p>
@@ -133,7 +145,7 @@
         <h3>Signal processing</h3>
       </div>
       <p>
-         The <a href="https://cran.r-project.org/web/packages/wrassp/index.html">wrassp</a> package is responsible for the signal processing. The functions of this package take a list of audio file paths as their main argument and produce SSFF files containing the derived signals (e.g. formant contours / f0 contours/ ...). These files can then be read from the user's hard drive for further analysis. A new feature is the ability not to write the result of a signal processing function back to disc but to return it as an in-memory-object. This feature is utilized by the emuR to do "on the fly" calculations for data extraction queries of SSFF files that have not been precalculated (i.e. that don't exist as files on the user's hard drive). For more information about the <a href="https://cran.r-project.org/web/packages/wrassp/index.html">wrassp</a> package see the <a href="https://cran.r-project.org/web/packages/wrassp/vignettes/wrassp_intro.html">wrassp_intro vignette</a>.
+         The <a href="https://cran.r-project.org/package=wrassp">wrassp</a> package is responsible for the signal processing. The functions of this package take a list of audio file paths as their main argument and produce SSFF files containing the derived signals (e.g. formant contours / f0 contours/ ...). These files can then be read from the user's hard drive for further analysis. A new feature is the ability not to write the result of a signal processing function back to disc but to return it as an in-memory-object. This feature is utilized by the emuR to do "on the fly" calculations for data extraction queries of SSFF files that have not been precalculated (i.e. that don't exist as files on the user's hard drive). For more information about the <a href="https://cran.r-project.org/web/packages/wrassp/index.html">wrassp</a> package see the <a href="https://cran.r-project.org/web/packages/wrassp/vignettes/wrassp_intro.html">wrassp_intro vignette</a>.
       </p>
 
 
@@ -182,7 +194,7 @@
 
       <h1>emuR</h1>
       <div class="alert alert-success"><b>STATUS:</b> released on CRAN (see Links)</div>
-      <p>The main Package of the EMU_SDMS provides the next iteration of the EMU Speech Database Management System (EMU_SDMS) with database management, data extraction, data preparation and data visualization facilities. A screenshot of it in action can be seen below.</p>
+      <p>The main Package of the EMU-SDMS provides the EMU Speech Database Management System (EMU-SDMS) with database management, data extraction, data preparation and data visualization facilities. A screenshot of it in action can be seen below.</p>
 
       <img src="images/emuR-inAction.png" class="shadow"/>
 
