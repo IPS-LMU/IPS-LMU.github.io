@@ -272,6 +272,13 @@
         <p>The annotation files are stored in the <a href="http://en.wikipedia.org/wiki/JSON"><i>JSON</i></a> file format. These JSON files use links to connect annotational units (called items) to each other. These items are grouped in level arrays specifying the level they belong to.</p>
       </div>
 
+      <!-- question -->
+      <h4>I'm used to other tools (e.g. Praat / ELAN / Transcriber / ...). Why should I start using the EMU-SDMS?</h4>
+
+      <div class="ips-callout ips-callout-info">
+        <p>In our opinion, two of the main selling points of the EMU-SDMS are better annotation structure modeling and far simpler data extraction mechanics. The EMU-SDMS allows for hierarchical annotation structures by providing a linking mechanism that allows annotational units of different layers to be linked to each other to form a hierarchy. Suppose you have the fairly typical annotation structure of words, syllables and phonemes. In other systems the beginning of a word must match the beginning of the first syllable and the first phoneme. If you change the boundary of the first phoneme you must take care that the other layers stay synchronous, otherwise you loose the implicit relationship between the phonemes, words and syllables. In the EMU-SDMS this logical connection is preserved automatically as explicit links are present. Once annotations are present you can simply extract segmental information using the powerful <i>query()</i> function and extract signal data (e.g. formant values) that corresponds to the segmental information with the <i>get_trackdata()</i> function. All of this from the comfort of your current R session, which we find a nifty feature in itself :-).</p>
+      </div>
+
     </div>
   </div>
 
