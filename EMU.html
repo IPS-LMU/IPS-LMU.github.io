@@ -279,6 +279,30 @@
         <p>In our opinion, two of the main selling points of the EMU-SDMS are better annotation structure modeling and far simpler data extraction mechanics. The EMU-SDMS allows for hierarchical annotation structures by providing a linking mechanism that allows annotational units of different layers to be linked to each other to form a hierarchy. Suppose you have the fairly typical annotation structure of words, syllables and phonemes. In other systems the beginning of a word must match the beginning of the first syllable and the first phoneme. If you change the boundary of the first phoneme you must take care that the other layers stay synchronous, otherwise you loose the implicit relationship between the phonemes, words and syllables. In the EMU-SDMS this logical connection is preserved automatically as explicit links are present. Once annotations are present you can simply extract segmental information using the powerful <i>query()</i> function and extract signal data (e.g. formant values) that corresponds to the segmental information with the <i>get_trackdata()</i> function. All of this from the comfort of your current R session, which we find a nifty feature in itself :-).</p>
       </div>
 
+      <!-- question -->
+      <h4>How do I cite the EMU-SDMS?</h4>
+      Please cite <a href="https://www.sciencedirect.com/science/article/pii/S0885230816302601?via%3Dihub">this article</a> if you are using the EMU-SDMS as part of your research efforts. The BibTex entry for this article is:
+      <div class="ips-callout ips-callout-info">
+         <p>
+        <pre>
+         <code>
+@article{winkelmann:2017aa,
+  Date-Added = {2017-03-06 09:32:49 +0000},
+  Date-Modified = {2017-03-17 19:43:48 +0000},
+  Doi = {http://dx.doi.org/10.1016/j.csl.2017.01.002},
+  Issn = {0885-2308},
+  Journal = {Computer Speech \& Language},
+  Keywords = {Speech database management},
+  Pages = {-},
+  Title = {{EMU}-{SDMS}: {A}dvanced speech database management and analysis in {R}},
+  Url = {https://www.sciencedirect.com/science/article/pii/S0885230816302601},
+  Year = {2017}
+}
+
+         </code>
+        </pre>
+         </p>
+      </div>
     </div>
   </div>
 
