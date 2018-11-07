@@ -98,7 +98,7 @@
         <li>Extract the according formant values - </li>td = get_trackdata(ae, sl, onTheFlyFunctionName = "forest")
         <li>Serve emuDB to EMU-webApp for annotation / visual inspection - <i>serve(ae)</i></li>
       </ol>
-      <em>For a more explicit introduction see <i>vignette("emuR_intro")</i></em>
+      <em>For a more explicit introduction see <a href="https://ips-lmu.github.io/The-EMU-SDMS-Manual/index.html">The EMU-SDMS Manual</a></em>
       </div>
 
       <h4>Features in a nutshell</h4>
@@ -138,14 +138,14 @@
         <h3>Database</h3>
       </div>
       <p>
-        As with the legacy EMU system a collection of files on the user's hard drive comprise a local speech database. These files consist of audio files (currently only <a href="http://en.wikipedia.org/wiki/WAV">.wav</a> audio files be supported across all the system's components), <a href="http://emu.sourceforge.net/manual/chap.ssff.html">SSFF</a> files and text files in the <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> format. The text files will describe the database as well as contain the actual hierarchical and label information. The folder structure of the database will loosely adhere to the structure <i>dbRootFolder → sessions → bundles</i>, where a bundle contains all the files associated with a recorded entity (e.g. an utterance). For more information on the emuDB format see the <a href="https://cran.r-project.org/web/packages/emuR/vignettes/emuDB.html">emuDB vignette</a> of the <a href="https://cran.r-project.org/web/packages/emuR/index.html">emuR</a> package.
+        As with the legacy EMU system a collection of files on the user's hard drive comprise a local speech database. These files consist of audio files (currently only <a href="http://en.wikipedia.org/wiki/WAV">.wav</a> audio files be supported across all the system's components), <a href="http://emu.sourceforge.net/manual/chap.ssff.html">SSFF</a> files and text files in the <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> format. The text files will describe the database as well as contain the actual hierarchical and label information. The folder structure of the database will loosely adhere to the structure <i>dbRootFolder → sessions → bundles</i>, where a bundle contains all the files associated with a recorded entity (e.g. an utterance). For more information on the emuDB format see the <a href="https://ips-lmu.github.io/The-EMU-SDMS-Manual/chap-emuDB.html">emuDB Format chapter</a> of the <a href="https://ips-lmu.github.io/The-EMU-SDMS-Manual/">EMU-SDMS manual</a>.
       </p>
 
       <div class="page-header">
         <h3>Signal processing</h3>
       </div>
       <p>
-         The <a href="https://cran.r-project.org/package=wrassp">wrassp</a> package is responsible for the signal processing. The functions of this package take a list of audio file paths as their main argument and produce SSFF files containing the derived signals (e.g. formant contours / f0 contours/ ...). These files can then be read from the user's hard drive for further analysis. A new feature is the ability not to write the result of a signal processing function back to disc but to return it as an in-memory-object. This feature is utilized by the emuR to do "on the fly" calculations for data extraction queries of SSFF files that have not been precalculated (i.e. that don't exist as files on the user's hard drive). For more information about the <a href="https://cran.r-project.org/web/packages/wrassp/index.html">wrassp</a> package see the <a href="https://cran.r-project.org/web/packages/wrassp/vignettes/wrassp_intro.html">wrassp_intro vignette</a>.
+         The <a href="https://cran.r-project.org/package=wrassp">wrassp</a> package is responsible for the signal processing. The functions of this package take a list of audio file paths as their main argument and produce SSFF files containing the derived signals (e.g. formant contours / f0 contours/ ...). These files can then be read from the user's hard drive for further analysis. A new feature is the ability not to write the result of a signal processing function back to disc but to return it as an in-memory-object. This feature is utilized by the emuR to do "on the fly" calculations for data extraction queries of SSFF files that have not been precalculated (i.e. that don't exist as files on the user's hard drive). For more information about the wrassp package see the <a href="https://ips-lmu.github.io/The-EMU-SDMS-Manual/chap-wrassp.html">R package wrassp</a> chapter of the <a href="https://ips-lmu.github.io/The-EMU-SDMS-Manual/">EMU-SDMS manual</a>.
       </p>
 
 
